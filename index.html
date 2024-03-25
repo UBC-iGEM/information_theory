@@ -1,23 +1,334 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
 
-		<title>reveal.js</title>
+		<title>Information Theory</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/reset.css" />
+		<link rel="stylesheet" href="dist/reveal.css" />
+		<link rel="stylesheet" href="dist/theme/igem.css" />
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" />
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Information Theory and Computer Storage</h2>
+				</section>
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>How do computers store and interpret information?</h2>
+					<p class="fragment">Computers are composed of:</p>
+					<ul>
+						<li class="fragment">Memory: stores bits, 0s and 1s</li>
+						<li class="fragment">
+							CPU: circuits, a combination of AND/OR/etc gates that specifiy
+							logic
+						</li>
+					</ul>
+					<p class="fragment">Who makes these circuits? Us!</p>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>What makes these circuits "run"?</h2>
+					<p class="fragment">
+						Transistors, which amplify or switch electrical signals (current)
+					</p>
+					<ul>
+						<li class="fragment">0 → turn off the current</li>
+						<li class="fragment">1 → amplify current</li>
+					</ul>
+					<p class="fragment">
+						But what if we want these circuits to run even faster? Run more
+						circuits or run more complicated logic?
+					</p>
+					<p class="fragment">
+						We can put more transistors per unit of space. This means we need to
+						make transistors smaller and smaller...
+					</p>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Can we do this forever?</h2>
+					<img
+						class="stretch"
+						src="public/images/Moore's_Law_Transistor_Count_1970-2020.png"
+					/>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Can we do this forever?</h2>
+					<p class="fragment">Sadly, no. Why?</p>
+					<ul>
+						<li class="fragment">
+							as we put more transistors on a chip, the cost decreases, but rate
+							of defects increases
+						</li>
+						<li class="fragment">
+							at small transistor sizes, current leakage becomes a more drastic
+							issue, causing the chip to heat up (thermal runaway), increasing
+							energy costs
+						</li>
+						<li class="fragment">
+							we made transitors one carbon atom thick, but they don't work
+							correctly because of quantum tunneling
+						</li>
+					</ul>
+					<cite
+						>https://spectrum.ieee.org/smallest-transistor-one-carbon-atom</cite
+					>
+					<cite>https://spectrum.ieee.org/the-tunneling-transistor</cite>
+					<p class="fragment">
+						This means we have reached the limit of transistors per unit of
+						space.
+					</p>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Why is DNA becoming a new storage medium?</h2>
+					<img
+						class="stretch"
+						src="public/images/BEC_Bioeconomy_DNA_Productivity.jpg"
+					/>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Why is DNA becoming a new storage medium?</h2>
+					<img
+						class="stretch"
+						src="public/images/Historic_cost_of_sequencing_a_human_genome.svg"
+					/>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<img
+						class="stretch"
+						src="public/images/ComputerMemoryHierarchy.svg"
+					/>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>What is information theory?</h2>
+					<ul>
+						<li>
+							collaboration between engineering, math and computer science
+						</li>
+						<li>
+							tries to answer the question: how we do transmit information
+							correctly, reliabily, quickly?
+						</li>
+						<li>
+							quantitative measure for information communicated by a message
+						</li>
+					</ul>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Transmission and storage of information is not perfect!</h2>
+					<ul>
+						<li>
+							sending and storing information in the real world is an uncertain
+							process
+						</li>
+						<li>we can't assume a message has no errors when decoding it</li>
+						<li>so we have to use probabilities to make an informed guess</li>
+					</ul>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>What is error correction?</h2>
+					<p>
+						Detecting and correcting errors over unreliable or noisy
+						communication channels
+					</p>
+					<p class="fragment">Why is error correction different for DNA?</p>
+					<ul>
+						<li class="fragment">high rate of deletion and insertion errors</li>
+						<li class="fragment">
+							synthesis and sequencing DNA itself has inherently higher rates of
+							error
+						</li>
+						<li class="fragment">
+							DNA sequences are short, so we don't want to lose too much
+							information density with redundancy introduced by error correction
+						</li>
+					</ul>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>What are error correction codes?</h2>
+					<p class="fragment">
+						Form of redundant information, part of entire message, to help
+						detect and correct for errors in the information containing portion
+						of the message.
+					</p>
+					<p>
+						Can be outer (don't encode for information, purely redundant), or
+						inner (encode for information and redundancy)
+					</p>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>What are some examples of DNA focussed error correction?</h2>
+					<h3>HEDGES</h3>
+					<img class="stretch" src="public/images/hedges-encode.jpg" />
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>What are some examples of DNA focussed error correction?</h2>
+					<h3>HEDGES</h3>
+					<img class="stretch" src="public/images/hedges-decode.jpg" />
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>What are some examples of DNA focussed error correction?</h2>
+					<h3>Fountain Codes</h3>
+					<img class="stretch" src="public/images/fountain.jpeg" />
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>What are some examples of DNA focussed error correction?</h2>
+					<p>
+						Outer Codes: Guess & Check+: Correcting Insertions and Deletions in
+						Short DNA sequences
+					</p>
+					<ul>
+						<li>Uses Reed-Solomon outer code to encode redundancies</li>
+						<li>
+							Within redundant bits, portion of the bits store different
+							possible indel patterns as 'guesses'
+						</li>
+						<li>
+							Rest of the parity bits encoded are 'checks' i.e. repetitive bits,
+							used to check against guessed indel pattern
+						</li>
+					</ul>
+					<img class="stretch" src="public/images/gc_layman.png" />
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Rectangular Codes</h2>
+					<ul>
+						<li class="fragment">
+							simple ECC capable correcting one error, and detecting more errors
+						</li>
+						<li class="fragment">
+							arrange a message of hl bits into a h x l matrix
+						</li>
+						<li class="fragment">
+							add a parity check bit for each row and column, resulting in a
+							code word of length (h + 1)(l + 1)
+						</li>
+					</ul>
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Rectangular Codes</h2>
+					<ul>
+						<li>arrange a message of hl bits into a h x l matrix</li>
+						<li>
+							add a parity check bit for each row and column, resulting in a
+							code word of length (h + 1)(l + 1)
+						</li>
+					</ul>
+					<p>What's a parity check bit?</p>
+					<ul>
+						<li>signifies how many 1s in a sequence</li>
+						<li>even number of 1s → 0</li>
+						<li>odd number of 1s → 1</li>
+					</ul>
+					<img class="stretch" src="public/images/example_rec.png" />
+				</section>
+
+				<section
+					data-auto-animate
+					data-background="public/backgrounds/dna_right_corner_backgroud.svg"
+				>
+					<h2>Sources</h2>
+					<ul>
+						<li>
+							http://www.cs.toronto.edu/~rahulgk/courses/csc311_f22/tutorials/tut03.pdf
+						</li>
+						<li>https://en.lntwww.de/Category:Information_Theory:_Exercises</li>
+						<li>
+							https://www.fi.muni.cz/~xbouda1/teaching/current/IV111/cviceni/ex05.pdf
+						</li>
+						<li>
+							http://www.inference.org.uk/mackay/itila/ExtraExercises.html
+						</li>
+						<li>
+							https://staff.science.uva.nl/c.schaffner/courses/inftheory/2014/inf14fall-ex1.pdf
+						</li>
+						<li>
+							https://www.cl.cam.ac.uk/teaching/0910/InfoTheory/Exercises09.pdf
+						</li>
+						<li>
+							https://www.synthesis.cc/synthesis/2022/10/dna-synthesis-cost-data
+						</li>
+						<li>https://en.wikipedia.org/wiki/Moore%27s_law</li>
+						<li>https://www.mathstat.dal.ca/~janssen/2113/notes/c22.pdf</li>
+					</ul>
+				</section>
 			</div>
 		</div>
 
@@ -33,7 +344,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 			});
 		</script>
 	</body>
